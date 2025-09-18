@@ -1,64 +1,68 @@
-type MarqueeProps = {
-	text?: string
-	top?: number // px from the top of the section
-	height?: number // total container height
-	lineHeight?: number // height of each scrolling line
-	gradientWidth?: number // px width of side gradients
-	fontSize?: number // px font size of the text
-	speedSec?: number // animation duration in seconds
+import React from 'react';
+
+interface MarqueeProps {
+  text?: string;
+  speed?: number; // секунды
+  className?: string;
 }
 
-const DEFAULT_TEXT = 'МЫ ИЩЕМ БАЙЕРОВ В КОМАНДУ! '
+const Marquee: React.FC<MarqueeProps> = ({ 
+  text = 'МЫ ИЩЕМ БАЙЕРОВ В КОМАНДУ!',
+  speed = 30,
+  className = ''
+}) => {
+  // Создаём массив для повторения текста
+  const repeatedText = Array(3).fill(text).join(' ');
+  
+  return (
+    <div className={`absolute bottom-0 left-0 right-0 h-24 sm:h-32 overflow-hidden bg-black ${className}`}>
+      {/* Top Line */}
+      <div className="relative h-12 sm:h-16 overflow-hidden flex items-center">
+        {/* Left Gradient */}
+        <div className="absolute left-0 top-0 bottom-0 w-24 sm:w-32 lg:w-56 
+                      bg-gradient-to-r from-black via-black/80 to-transparent z-10" />
+        
+        {/* Scrolling Content */}
+        <div 
+          className="flex absolute whitespace-nowrap"
+          style={{
+            animation: `marquee ${speed}s linear infinite`
+          }}
+        >
+          {[1, 2].map(i => (
+            <span key={i} className="font-montserrat font-black uppercase 
+                                   text-2xl sm:text-3xl lg:text-5xl xl:text-[54px] 
+                                   text-white pr-8 select-none">
+              {repeatedText}
+            </span>
+          ))}
+        </div>
+      </div>
 
-export default function Marquee({
-	text = DEFAULT_TEXT.repeat(3),
-	top = 707,
-	height = 128,
-	lineHeight = 64,
-	gradientWidth = 224,
-	fontSize = 54,
-	speedSec = 30,
-}: MarqueeProps) {
-	const lineStyle: React.CSSProperties = {
-		top: `${Math.round(lineHeight / 2 - 5)}px`,
-		transform: 'translateY(-50%)',
-		animationDuration: `${speedSec}s`,
-	}
+      {/* Bottom Line - Reverse */}
+      <div className="relative h-12 sm:h-16 overflow-hidden flex items-center">
+        {/* Right Gradient */}
+        <div className="absolute right-0 top-0 bottom-0 w-24 sm:w-32 lg:w-56 
+                      bg-gradient-to-l from-black via-black/80 to-transparent z-10" />
+        
+        {/* Scrolling Content Reverse */}
+        <div 
+          className="flex absolute whitespace-nowrap"
+          style={{
+            animation: `marquee-reverse ${speed}s linear infinite`
+          }}
+        >
+          {[1, 2].map(i => (
+            <span key={i} className="font-montserrat font-black uppercase 
+                                   text-2xl sm:text-3xl lg:text-5xl xl:text-[54px] 
+                                   text-white pr-8 select-none">
+              {repeatedText}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
 
-	const gradientLeft: React.CSSProperties = {
-		width: `${gradientWidth}px`,
-		background: 'linear-gradient(to right, #000000 16%, transparent)',
-	}
-
-	const gradientRight: React.CSSProperties = {
-		width: `${gradientWidth}px`,
-		background: 'linear-gradient(to left, #000000 16%, transparent)',
-	}
-
-	const textClass = `text-white font-black uppercase leading-[36px]`
-	const textStyle: React.CSSProperties = { fontFamily: 'Montserrat, sans-serif', fontSize }
-
-	return (
-		<div
-			className="absolute left-0 right-0 overflow-hidden max-[480px]:static max-[480px]:mt-6"
-			style={{ top: `${top}px`, height: `${height}px` }}
-		>
-			{/* Top line */}
-			<div className="relative w-full overflow-hidden" style={{ height: `${lineHeight}px` }}>
-				<div className="absolute left-0 top-0 bottom-0 z-10 max-[480px]:hidden" style={gradientLeft} />
-				<div className="absolute whitespace-nowrap animate-marquee" style={lineStyle}>
-					<span className={textClass} style={textStyle}>{text}</span>
-				</div>
-			</div>
-			{/* Bottom line (reverse) */}
-			<div className="relative w-full overflow-hidden" style={{ height: `${lineHeight}px` }}>
-				<div className="absolute right-0 top-0 bottom-0 z-10 max-[480px]:hidden" style={gradientRight} />
-				<div className="absolute whitespace-nowrap animate-marquee-reverse" style={lineStyle}>
-					<span className={textClass} style={textStyle}>{text}</span>
-				</div>
-			</div>
-		</div>
-	)
-}
-
-
+export default Marquee;

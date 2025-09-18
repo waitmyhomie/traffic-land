@@ -1,28 +1,57 @@
-import brainImg from '../assets/brain.png'
+import React from 'react';
+import brainImg from '../assets/brain.png';
 
-export default function Hero() {
-	return (
-		<section className="absolute left-0 right-0 top-[124px] h-[805px] max-[480px]:static max-[480px]:pt-6 max-[480px]:pb-4">
-			{/* Brain image */}
-			<div className="absolute left-[320px] top-[130px] w-[391px] h-[389px] max-[480px]:static max-[480px]:mx-auto max-[480px]:w-[212px] max-[480px]:h-[211px]">
-				<img src={brainImg} alt="AI Brain Circuit" className="w-full h-full object-cover" />
-			</div>
-			{/* Text/CTA */}
-			<div className="absolute h-[287px] w-[657px] max-[480px]:static max-[480px]:px-4" style={{ left: '44.27%', right: '15.63%', top: 'calc(50% - 77.91px)', transform: 'translateY(-50%)' }}>
-				<div className="relative w-full h-full max-[480px]:h-auto">
-					<div className="absolute left-[12px] top-[-16.09px] w-[657px] max-[480px]:static">
-						<h1 className="text-white text-[64px] font-black uppercase leading-[76.8px] mb-[20px] max-[480px]:text-[28px] max-[480px]:leading-[34px]" style={{ fontFamily: 'Montserrat, sans-serif' }}>TRAFFIC MINDS</h1>
-						<p className="text-white text-[25px] leading-[32px] font-normal max-[480px]:text-[14px] max-[480px]:leading-[20px]" style={{ fontFamily: 'Ubuntu, sans-serif' }}>
-							Мы генерируем половину идей, которые вы ищете в спай-сервисах и ПП - подключайся к источнику, а не к копиям!
-						</p>
-					</div>
-					<button className="absolute left-[12px] top-[208.71px] px-[60px] py-[21px] bg-[#00cfff] rounded-[18px] text-black text-[24px] font-bold uppercase hover:bg-[#00b8e6] transition-colors max-[480px]:static max-[480px]:mt-4 max-[480px]:mx-auto max-[480px]:block max-[480px]:px-6 max-[480px]:py-3 max-[480px]:text-[16px]">
-						хочу в команду
-					</button>
-				</div>
-			</div>
-		</section>
-	)
-}
+const Hero: React.FC = () => {
+  return (
+    <section className="flex-1 flex items-center py-12 lg:py-0">
+      <div className="max-w-[1920px] mx-auto w-full px-6 sm:px-12 lg:px-0">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          
+          {/* Brain Image */}
+          <div className="flex justify-center lg:justify-end lg:pr-8 xl:pl-[320px] xl:pr-0">
+            <img 
+              src={brainImg} 
+              alt="AI Brain Circuit" 
+              className="w-64 sm:w-80 lg:w-96 xl:w-[391px] h-auto object-contain
+                         animate-pulse-slow"
+            />
+          </div>
 
+          {/* Content */}
+          <div className="text-center lg:text-left max-w-2xl lg:max-w-none mx-auto lg:mx-0 lg:pr-8 xl:pr-[15%]">
+            {/* Title */}
+            <h1 className="font-montserrat font-black uppercase 
+                         text-4xl sm:text-5xl xl:text-[64px] 
+                         leading-tight xl:leading-[76.8px] 
+                         mb-5 text-white">
+              TRAFFIC MINDS
+            </h1>
+            
+            {/* Description */}
+            <p className="font-ubuntu 
+                        text-lg sm:text-xl xl:text-[25px] 
+                        leading-relaxed xl:leading-[32px] 
+                        mb-8 xl:mb-10 
+                        text-white/90">
+              Мы генерируем половину идей, которые вы ищете в спай-сервисах и ПП - подключайся к источнику, а не к копиям!
+            </p>
+            
+            {/* CTA Button */}
+            <button className="bg-[#00cfff] hover:bg-[#00b8e6] 
+                             text-black font-montserrat font-bold uppercase 
+                             px-10 py-4 sm:px-12 xl:px-[60px] xl:py-[21px] 
+                             rounded-2xl xl:rounded-[18px] 
+                             text-lg sm:text-xl xl:text-2xl 
+                             transition-all duration-300 
+                             transform hover:scale-105 active:scale-95
+                             shadow-lg shadow-[#00cfff]/20 hover:shadow-xl hover:shadow-[#00cfff]/30">
+              хочу в команду
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
 
+export default Hero;
