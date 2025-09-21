@@ -6,6 +6,14 @@ export default {
     ],
     theme: {
       extend: {
+        spacing: {
+          'header-left': '300px',
+          'logo-left': '14px',
+          'logo-top': '41px',
+          'nav-left': '307px',
+          'nav-top': '41px',
+          'nav-gap': '45px',
+        },
         fontFamily: {
           'montserrat': ['Montserrat', 'sans-serif'],
           'ubuntu': ['Ubuntu', 'sans-serif'],

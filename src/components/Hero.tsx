@@ -5,10 +5,10 @@ const Hero: React.FC = () => {
   return (
     <section className="flex-1 flex items-center py-12 lg:py-0">
       <div className="max-w-[1920px] mx-auto w-full px-6 sm:px-12 lg:px-0">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center lg:pb-[13%] lg:pr-[10%]">
           
           {/* Brain Image */}
-          <div className="flex justify-center lg:justify-end lg:pr-8 xl:pl-[320px] xl:pr-0">
+          <div className="flex justify-center lg:justify-end lg:pr-8 ">
             <img 
               src={brainImg} 
               alt="AI Brain Circuit" 

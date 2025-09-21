@@ -15,7 +15,7 @@ const Marquee: React.FC<MarqueeProps> = ({
   const repeatedText = Array(3).fill(text).join(' ');
   
   return (
-    <div className={`absolute bottom-0 left-0 right-0 h-24 sm:h-32 overflow-hidden bg-black ${className}`}>
+    <div className={`absolute bottom-2 left-0 right-0 h-24 sm:h-32 overflow-hidden lg:bottom-16 bg-black ${className}`}>
       {/* Top Line */}
       <div className="relative h-12 sm:h-16 overflow-hidden flex items-center">
         {/* Left Gradient */}
