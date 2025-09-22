@@ -5,7 +5,7 @@ import brainImg from '../assets/brain.png';
 
 const Hero: React.FC = () => {
   return (
-    <section className="flex-1 flex items-center py-12 lg:py-0">
+    <section className="flex-1 flex items-center py-12 lg:py-44">
       <div className="max-w-[1920px] mx-auto w-full px-6 sm:px-12 lg:px-0">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center lg:pb-[13%] lg:pr-[10%]">
           
@@ -40,8 +40,8 @@ const Hero: React.FC = () => {
             
             {/* CTA Button */}
             <button 
-              className="bg-[#00cfff] hover:bg-[#00b8e6] 
-                             text-black font-montserrat font-bold uppercase 
+              className="bg-[#01415f] hover:bg-[#01415f] 
+                             text-white font-montserrat font-bold uppercase 
                              px-10 py-4 sm:px-12 xl:px-[60px] xl:py-[21px] 
                              rounded-2xl xl:rounded-[18px] 
                              text-lg sm:text-xl xl:text-2xl 
