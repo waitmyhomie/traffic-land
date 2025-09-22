@@ -1,6 +1,8 @@
 import React from 'react';
 import brainImg from '../assets/brain.png';
 
+
+
 const Hero: React.FC = () => {
   return (
     <section className="flex-1 flex items-center py-12 lg:py-0">
@@ -13,7 +15,7 @@ const Hero: React.FC = () => {
               src={brainImg} 
               alt="AI Brain Circuit" 
               className="w-64 sm:w-80 lg:w-96 xl:w-[391px] h-auto object-contain
-                         animate-pulse-slow"
+                         animate-pulse-slow rounded-lg"
             />
           </div>
 
@@ -37,14 +39,20 @@ const Hero: React.FC = () => {
             </p>
             
             {/* CTA Button */}
-            <button className="bg-[#00cfff] hover:bg-[#00b8e6] 
+            <button 
+              className="bg-[#00cfff] hover:bg-[#00b8e6] 
                              text-black font-montserrat font-bold uppercase 
                              px-10 py-4 sm:px-12 xl:px-[60px] xl:py-[21px] 
                              rounded-2xl xl:rounded-[18px] 
                              text-lg sm:text-xl xl:text-2xl 
                              transition-all duration-300 
                              transform hover:scale-105 active:scale-95
-                             shadow-lg shadow-[#00cfff]/20 hover:shadow-xl hover:shadow-[#00cfff]/30">
+                             shadow-lg shadow-[#00cfff]/20 hover:shadow-xl hover:shadow-[#00cfff]/30"
+              onClick={() => {
+                const contactForm = document.getElementById('contact-form');
+                contactForm?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
               хочу в команду
             </button>
           </div>
