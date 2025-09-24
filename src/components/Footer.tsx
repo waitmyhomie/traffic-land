@@ -49,28 +49,7 @@ const Footer: React.FC = () => {
         </div>
       </div>
 
-      {/* Дополнительная респонсивная версия для мобильных */}
-      <div className="sm:hidden">
-        <div className="flex flex-col gap-4 px-6 pb-6">
-          <div className="flex justify-center">
-            <button 
-              onClick={scrollToTop}
-              className="flex items-center gap-2 text-white text-sm font-ubuntu hover:text-[#00cfff] transition-colors duration-300"
-            >
-              <div className="w-4 h-4 border-t border-r border-white transform rotate-[-45deg]"></div>
-              Back to top
-            </button>
-          </div>
-          <div className="text-center">
-            <a 
-              href="/privacy-policy" 
-              className="text-white text-sm font-ubuntu hover:text-[#00cfff] transition-colors duration-300"
-            >
-              Политика конфиденциальности
-            </a>
-          </div>
-        </div>
-      </div>
+
     </footer>
   );
 };
