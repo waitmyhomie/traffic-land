@@ -13,16 +13,10 @@ const ContactForm: React.FC = () => {
         e.preventDefault();
         setIsSubmitting(true);
 
-        // Симуляция отправки формы
         await new Promise(resolve => setTimeout(resolve, 1000));
-
         console.log('Form submitted:', formData);
 
-        // Здесь будет логика отправки на сервер
-
         setIsSubmitting(false);
-
-        // Сброс формы после успешной отправки
         setFormData({
             fullName: '',
             telegram: '',
@@ -39,278 +33,159 @@ const ContactForm: React.FC = () => {
     };
 
     return (
-        <section id="contact-form" className="relative py-16 lg:py-24 bg-black">
-            <div className="max-w-[1920px] mx-auto px-6 sm:px-12 lg:px-0">
+        <section id="contact-form" className="relative py-8 sm:py-12 md:py-16 lg:py-20 xl:py-24 bg-black">
+            <div className="w-full max-w-[1920px] mx-auto px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-0">
+                
+                {/* Main container */}
+                <div className="w-full max-w-[1400px] mx-auto">
+                    <div className="flex flex-col lg:flex-row lg:items-start lg:justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24">
 
-                {/* Desktop layout - точная копия из Figma */}
-                <div className="hidden lg:block relative">
-                    <div className="relative h-[500px] w-full">
+                        {/* Left column - title and description */}
+                        <div className="w-full lg:w-[45%] xl:w-[42%] 2xl:w-[40%] flex-shrink-0 
+                                        flex flex-col items-center justify-center lg:items-start lg:justify-start">
+                            
+                            {/* Container for centering on mobile, left align on desktop */}
+                            <div className="w-full flex flex-col items-center justify-center lg:items-start lg:justify-start">
+                                
+                                {/* Title with layered effect */}
+                                <div className="font-montserrat font-black uppercase leading-[0.9] relative mb-6 md:mb-8 lg:mb-8 xl:mb-10
+                                            text-[30px] sm:text-[32px] md:text-[36px] lg:text-[42px] xl:text-[48px] 2xl:text-[54px]">
+                                    
+                                    {/* Создаем centered container для мобильных, left-aligned для десктопа */}
+                                    <div className="relative inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-center lg:place-items-start">
+                                        {/* Black layers with cyan outline */}
+                                        <div className="[grid-area:1_/_1] text-black mt-[18px] translate-y-[-50%]"
+                                            style={{
+                                                WebkitTextStrokeWidth: '1px',
+                                                WebkitTextStrokeColor: '#00CFFF'
+                                            }}>
+                                            ИЩЕМ БАЙЕРОВ
+                                        </div>
+                                        <div className="[grid-area:1_/_1] text-black mt-[23px] translate-y-[-50%]"
+                                            style={{
+                                                WebkitTextStrokeWidth: '1px',
+                                                WebkitTextStrokeColor: '#00CFFF'
+                                            }}>
+                                            ИЩЕМ БАЙЕРОВ
+                                        </div>
+                                        <div className="[grid-area:1_/_1] text-black mt-[28px] translate-y-[-50%]"
+                                            style={{
+                                                WebkitTextStrokeWidth: '1px',
+                                                WebkitTextStrokeColor: '#00CFFF'
+                                            }}>
+                                            ИЩЕМ БАЙЕРОВ
+                                        </div>
+                                        {/* White text on top */}
+                                        <div className="[grid-area:1_/_1] text-white mt-[31px] translate-y-[-50%]">
+                                            ИЩЕМ БАЙЕРОВ
+                                        </div>
+                                    </div>
+                                </div>
 
-                        {/* Левая колонка - заголовок и описание (позиция из Figma: left-[306px] top-[1072px]) */}
-                        <div className="absolute left-[306px] top-[50px] w-[505.48px] flex flex-col gap-[30px]">
-
-                            {/* Заголовок с многослойным эффектом - точная копия стилей */}
-                            <div className="font-montserrat font-black text-[54px] uppercase leading-[36px] relative inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start">
-                                {/* Черные слои с обводкой */}
-                                <div className="[grid-area:1_/_1] text-black mt-[18px] translate-y-[-50%]"
-                                    style={{
-                                        WebkitTextStrokeWidth: '1px',
-                                        WebkitTextStrokeColor: '#00CFFF'
-                                    }}>
-                                    ИЩЕМ БАЙЕРОВ
+                                {/* Description - также центрируем на мобильных */}
+                                <div className="font-ubuntu text-white leading-[1.3] w-full
+                                              text-[14px] sm:text-[16px] md:text-[18px] lg:text-[20px] xl:text-[22px] 2xl:text-[24px]
+                                              text-center lg:text-left max-w-[400px] sm:max-w-[500px] lg:max-w-none mx-auto lg:mx-0">
+                                    <p className="mb-1">Готовы обсудить условия сотрудничества по</p>
+                                    <p className="mb-0">любым вопросам</p>
                                 </div>
-                                <div className="[grid-area:1_/_1] text-black mt-[23px] translate-y-[-50%]"
-                                    style={{
-                                        WebkitTextStrokeWidth: '1px',
-                                        WebkitTextStrokeColor: '#00CFFF'
-                                    }}>
-                                    ИЩЕМ БАЙЕРОВ
-                                </div>
-                                <div className="[grid-area:1_/_1] text-black mt-[28px] translate-y-[-50%]"
-                                    style={{
-                                        WebkitTextStrokeWidth: '1px',
-                                        WebkitTextStrokeColor: '#00CFFF'
-                                    }}>
-                                    ИЩЕМ БАЙЕРОВ
-                                </div>
-                                {/* Белый текст поверх */}
-                                <div className="[grid-area:1_/_1] text-white mt-[31px] translate-y-[-50%]">
-                                    ИЩЕМ БАЙЕРОВ
-                                </div>
-                            </div>
-
-                            {/* Описание */}
-                            <div className="font-ubuntu text-[24px] leading-[30px] text-white h-[57px] w-full">
-                                <p className="mb-0">Готовы обсудить условия сотрудничества по</p>
-                                <p>любым вопросам</p>
                             </div>
                         </div>
 
-                        {/* Правая колонка - форма (позиция из Figma: left-[981.48px] top-[1049px]) */}
-                        <div className="absolute left-[981.48px] top-0 w-[633px] h-[373px]">
-                            <form onSubmit={handleSubmit} className="relative size-full">
+                        {/* Right column - form */}
+                        <div className="w-full lg:w-[50%] xl:w-[55%] 2xl:w-[57%] flex-shrink-0">
+                            <form onSubmit={handleSubmit} className="w-full max-w-[500px] sm:max-w-[600px] lg:max-w-none mx-auto">
 
-                                {/* Лейблы */}
-                                <div className="absolute top-0 left-0 right-[69.67%] h-[31px] flex items-center">
-                                    <label className="font-montserrat font-normal text-[20px] leading-[31px] text-white uppercase">
-                                        Имя и фамилия
-                                    </label>
-                                </div>
+                                {/* First row - side by side fields on larger screens */}
+                                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5 md:gap-6 lg:gap-6 xl:gap-8 mb-5 sm:mb-6 md:mb-7 lg:mb-8">
 
-                                <div className="absolute top-0 left-[52.13%] right-[29.86%] h-[31px] flex items-center">
-                                    <label className="font-montserrat font-normal text-[20px] leading-[31px] text-white uppercase">
-                                        Telegram
-                                    </label>
-                                </div>
-
-                                {/* Поля ввода - первая строка */}
-                                <div className="absolute top-[10.99%] bottom-[71.31%] left-0 right-0">
-                                    {/* Поле имени */}
-                                    <div className="absolute left-0 right-[52.13%] top-0 bottom-0">
-                                        <div className="relative size-full">
-                                            <input
-                                                type="text"
-                                                name="fullName"
-                                                value={formData.fullName}
-                                                onChange={handleInputChange}
-                                                placeholder="Имя и фамилия"
-                                                className="w-full h-full px-[17px] bg-transparent rounded-[18px] border border-[#bdbdbd] 
-                                 text-white placeholder-[#bdbdbd] font-ubuntu text-[16px]
-                                 focus:outline-none focus:border-[#00cfff] transition-colors"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-
-                                    {/* Поле телеграма */}
-                                    <div className="absolute left-[52.13%] right-0 top-0 bottom-0">
-                                        <div className="relative size-full">
-                                            <input
-                                                type="text"
-                                                name="telegram"
-                                                value={formData.telegram}
-                                                onChange={handleInputChange}
-                                                placeholder="@"
-                                                className="w-full h-full px-[17px] bg-transparent rounded-[18px] border border-[#bdbdbd] 
-                                 text-white placeholder-[#bdbdbd] font-ubuntu text-[16px]
-                                 focus:outline-none focus:border-[#00cfff] transition-colors"
-                                                required
-                                            />
-                                        </div>
-                                    </div>
-                                </div>
-
-                                {/* Лейбл комментария */}
-                                <div className="absolute top-[34.05%] bottom-[57.64%] left-0 right-[72.83%] flex items-center">
-                                    <label className="font-montserrat font-normal text-[20px] leading-[31px] text-white uppercase">
-                                        Комментарий
-                                    </label>
-                                </div>
-
-                                {/* Поле комментария */}
-                                <div className="absolute top-[45.04%] bottom-[37.27%] left-0 right-0">
-                                    <div className="relative size-full">
-                                        <textarea
-                                            name="comment"
-                                            value={formData.comment}
+                                    {/* Name field */}
+                                    <div className="w-full">
+                                        <label className="block font-montserrat font-normal text-white uppercase mb-2 sm:mb-3
+                                                             text-[13px] sm:text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] 
+                                                             leading-[1.6]">
+                                            Имя и фамилия
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="fullName"
+                                            value={formData.fullName}
                                             onChange={handleInputChange}
-                                            placeholder="Комментарий"
-                                            className="w-full h-full px-[17px] py-[12px] bg-transparent rounded-[18px] border border-[#bdbdbd] 
-                               text-white placeholder-[#bdbdbd] font-ubuntu text-[15.75px] resize-none
-                               focus:outline-none focus:border-[#00cfff] transition-colors"
+                                            placeholder="Имя и фамилия"
+                                            className="w-full bg-transparent rounded-[18px] border border-[#bdbdbd] 
+                                                         text-white placeholder-[#bdbdbd] font-ubuntu
+                                                         focus:outline-none focus:border-[#00cfff] transition-colors
+                                                         px-3 sm:px-4 md:px-[17px]
+                                                         h-[44px] sm:h-[48px] md:h-[52px] lg:h-[56px] xl:h-[60px] 2xl:h-[69px]
+                                                         text-[14px] sm:text-[15px] md:text-[16px]"
+                                            required
+                                        />
+                                    </div>
+
+                                    {/* Telegram field */}
+                                    <div className="w-full">
+                                        <label className="block font-montserrat font-normal text-white uppercase mb-2 sm:mb-3
+                                                             text-[13px] sm:text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] 
+                                                             leading-[1.6]">
+                                            Telegram
+                                        </label>
+                                        <input
+                                            type="text"
+                                            name="telegram"
+                                            value={formData.telegram}
+                                            onChange={handleInputChange}
+                                            placeholder="@"
+                                            className="w-full bg-transparent rounded-[18px] border border-[#bdbdbd] 
+                                                         text-white placeholder-[#bdbdbd] font-ubuntu
+                                                         focus:outline-none focus:border-[#00cfff] transition-colors
+                                                         px-3 sm:px-4 md:px-[17px]
+                                                         h-[44px] sm:h-[48px] md:h-[52px] lg:h-[56px] xl:h-[60px] 2xl:h-[69px]
+                                                         text-[14px] sm:text-[15px] md:text-[16px]"
+                                            required
                                         />
                                     </div>
                                 </div>
 
-                                {/* Кнопка отправки */}
-                                <div className="absolute top-[79.09%] bottom-0 left-0 right-0">
-                                    <button
-                                        type="submit"
-                                        disabled={isSubmitting}
-                                        className="w-full h-full bg-[#01415f] hover:bg-[#01415f] disabled:bg-[#01415f]/70
-                             text-white font-montserrat font-bold text-[24px] leading-[36px] uppercase 
-                             rounded-[18px] px-[140px] py-[21px]
-                             transition-all duration-300 
-                             transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100
-                             disabled:cursor-not-allowed flex items-center justify-center"
-                                    >
-                                        {isSubmitting ? 'ОТПРАВЛЯЕМ...' : 'СТАТЬ ЧАСТЬЮ КОМАНДЫ'}
-                                    </button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-
-                {/* Mobile/Tablet layout - адаптивная версия */}
-                <div className="lg:hidden">
-                    <div >
-
-                        {/* Заголовок для мобильных - ИСПРАВЛЕННАЯ ВЕРСИЯ */}
-                        {/* Заголовок для мобильных - ИСПРАВЛЕННАЯ ВЕРСИЯ */}
-                        <div className="text-center mb-[10px]">
-                            <div className="font-montserrat font-black text-[32px] sm:text-[40px] uppercase leading-[36px] sm:leading-[42px] relative inline-grid grid-cols-[max-content] grid-rows-[max-content] place-items-start">
-                                {/* Черные слои с обводкой - точные позиции из Figma */}
-                                <div className="[grid-area:1_/_1] text-black mt-[18px] translate-y-[-50%]"
-                                    style={{
-                                        WebkitTextStrokeWidth: '1px',
-                                        WebkitTextStrokeColor: '#00CFFF'
-                                    }}>
-                                    ИЩЕМ БАЙЕРОВ
-                                </div>
-                                <div className="[grid-area:1_/_1] text-black mt-[23px] translate-y-[-50%]"
-                                    style={{
-                                        WebkitTextStrokeWidth: '1px',
-                                        WebkitTextStrokeColor: '#00CFFF'
-                                    }}>
-                                    ИЩЕМ БАЙЕРОВ
-                                </div>
-                                <div className="[grid-area:1_/_1] text-black mt-[28px] translate-y-[-50%]"
-                                    style={{
-                                        WebkitTextStrokeWidth: '1px',
-                                        WebkitTextStrokeColor: '#00CFFF'
-                                    }}>
-                                    ИЩЕМ БАЙЕРОВ
-                                </div>
-                                {/* Белый текст поверх - финальная позиция */}
-                                <div className="[grid-area:1_/_1] text-white mt-[31px] translate-y-[-50%]">
-                                    ИЩЕМ БАЙЕРОВ
-                                </div>
-                            </div>
-
-                            {/* Описание для мобильных - точно как в дизайне с переносом строки */}
-
-                        </div>
-
-                        <div className="font-ubuntu text-[16px] leading-[26px] font-normal text-white max-w-[303px] mx-auto flex flex-col flex-shrink-0 justify-center mb-8">
-                            <p className="mb-0">Готовы обсудить условия сотрудничества по любым вопросам</p>
-
-                        </div>
-
-                        {/* Форма для мобильных - точные размеры из Figma */}
-                        <form onSubmit={handleSubmit} className="flex flex-col gap-[20px] items-start w-full max-w-[303px] mx-auto">
-
-                            {/* Поле "Имя и фамилия" */}
-                            <div className="flex flex-col gap-[10px] items-start w-full">
-                                <label className="font-montserrat font-normal text-[16px] leading-[31px] text-white uppercase">
-                                    Имя и фамилия
-                                </label>
-                                <div className="relative w-[303px] h-[50px]">
-                                    <input
-                                        type="text"
-                                        name="fullName"
-                                        value={formData.fullName}
-                                        onChange={handleInputChange}
-                                        placeholder="Имя и фамилия"
-                                        className="w-full h-full px-[17px] bg-transparent border border-[#bdbdbd] rounded-[18px] 
-                         text-white placeholder-[#bdbdbd] font-ubuntu text-[16px]
-                         focus:outline-none focus:border-[#01415f] transition-colors"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Поле "Telegram" */}
-                            <div className="flex flex-col gap-[10px] items-start w-full">
-                                <label className="font-montserrat font-normal text-[15px] leading-[31px] text-white uppercase">
-                                    Telegram
-                                </label>
-                                <div className="relative w-[303px] h-[50px]">
-                                    <input
-                                        type="text"
-                                        name="telegram"
-                                        value={formData.telegram}
-                                        onChange={handleInputChange}
-                                        placeholder="@"
-                                        className="w-full h-full px-[17px] bg-transparent border border-[#bdbdbd] rounded-[18px] 
-                         text-white placeholder-[#bdbdbd] font-ubuntu text-[16px]
-                         focus:outline-none focus:border-[#01415f] transition-colors"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            {/* Поле "Комментарий" */}
-                            <div className="flex flex-col gap-[10px] items-start w-full">
-                                <label className="font-montserrat font-normal text-[15px] leading-[31px] text-white uppercase">
-                                    Комментарий
-                                </label>
-                                <div className="relative w-[303px] h-[50px]">
+                                {/* Comment field */}
+                                <div className="w-full mb-5 sm:mb-6 md:mb-7 lg:mb-8">
+                                    <label className="block font-montserrat font-normal text-white uppercase mb-2 sm:mb-3
+                                                         text-[13px] sm:text-[14px] md:text-[16px] lg:text-[17px] xl:text-[18px] 2xl:text-[20px] 
+                                                         leading-[1.6]">
+                                        Комментарий
+                                    </label>
                                     <textarea
                                         name="comment"
                                         value={formData.comment}
                                         onChange={handleInputChange}
                                         placeholder="Комментарий"
-                                        className="w-full h-full px-[17px] py-[12px] bg-transparent border border-[#bdbdbd] rounded-[18px] 
-                         text-white placeholder-[#bdbdbd] font-ubuntu text-[15.75px] resize-none
-                         focus:outline-none focus:border-[#01415f] transition-colors"
+                                        className="w-full bg-transparent rounded-[18px] border border-[#bdbdbd] 
+                                                     text-white placeholder-[#bdbdbd] font-ubuntu resize-none
+                                                     focus:outline-none focus:border-[#00cfff] transition-colors
+                                                     px-3 sm:px-4 md:px-[17px] py-3 sm:py-3 md:py-[12px]
+                                                     h-[60px] sm:h-[64px] md:h-[66px] lg:h-[68px] xl:h-[70px] 2xl:h-[66px]
+                                                     text-[14px] sm:text-[15px] md:text-[15.75px]"
                                     />
                                 </div>
-                            </div>
 
-                            {/* Кнопка отправки - точные размеры из Figma */}
-                            <button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="w-[303px] h-[64px] bg-[#01415f] hover:bg-[#01415f] disabled:bg-[#01415f]/70
-                   px-[30px] py-[14px] rounded-[18px] flex-shrink-0
-                   transition-all duration-300 
-                   transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100
-                   disabled:cursor-not-allowed flex items-center justify-center gap-[10px] "
-                                style={{
-                                    color: '#FFFFFF',
-                                    textAlign: 'center',
-                                    fontFamily: 'Montserrat',
-                                    fontSize: '16px',
-                                    fontStyle: 'normal',
-                                    fontWeight: '700',
-                                    lineHeight: '36px',
-                                    textTransform: 'uppercase'
-                                }}
-                            >
-                                {isSubmitting ? 'ОТПРАВЛЯЕМ...' : 'СТАТЬ ЧАСТЬЮ КОМАНДЫ'}
-                            </button>
-                        </form>
+                                {/* Submit button */}
+                                <button
+                                    type="submit"
+                                    disabled={isSubmitting}
+                                    className="w-full bg-[#01415f] hover:bg-[#01415e] disabled:bg-[#01415c]/70
+                                                 text-white font-montserrat font-bold uppercase 
+                                                 rounded-[18px] transition-all duration-300 
+                                                 transform hover:scale-[1.02] active:scale-[0.98] disabled:scale-100
+                                                 disabled:cursor-not-allowed flex items-center justify-center
+                                                 px-4 sm:px-6 md:px-8 lg:px-12 xl:px-16 2xl:px-[140px]
+                                                 py-3 sm:py-3.5 md:py-4 lg:py-4.5 xl:py-5 2xl:py-[21px]
+                                                 h-[48px] sm:h-[52px] md:h-[58px] lg:h-[64px] xl:h-[70px] 2xl:h-[78px]
+                                                 text-[13px] sm:text-[14px] md:text-[16px] lg:text-[18px] xl:text-[20px] 2xl:text-[24px] 
+                                                 leading-[1.5]"
+                                >
+                                    {isSubmitting ? 'ОТПРАВЛЯЕМ...' : 'СТАТЬ ЧАСТЬЮ КОМАНДЫ'}
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
