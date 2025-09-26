@@ -1,5 +1,6 @@
 import React from 'react';
 import brainImg from '../assets/heroImage.svg';
+import brainImgMobile from '../assets/logoNew3.svg';
 
 const Hero: React.FC = () => {
   const scrollToContactForm = () => {
@@ -13,99 +14,107 @@ const Hero: React.FC = () => {
         
         {/* Main container */}
         <div className="w-full max-w-[1400px] mx-auto">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-8 sm:gap-10 md:gap-12 lg:gap-16 xl:gap-20 2xl:gap-24">
-
-            {/* Mobile Layout - все элементы вертикально по центру */}
-            <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 lg:hidden w-full">
+          {/* Центрируем весь контент по вертикали */}
+          <div className="flex items-center justify-center min-h-[400px] sm:min-h-[500px] lg:min-h-[600px]">
+            
+            {/* Mobile Layout - точно по дизайну Figma */}
+            <div className="flex flex-col items-center justify-start gap-0 lg:hidden w-full">
               
-              {/* Brain image - сверху на мобильных */}
-              <div className="relative max-w-[260px] sm:max-w-[260px] w-full">
+              {/* Brain image - точные размеры из дизайна */}
+              <div className="relative w-[262px] h-[250px] mb-[45px]">
                 <img 
-                  src={brainImg} 
+                  src={brainImgMobile} 
                   alt="AI Brain Circuit" 
-                  className="w-full h-auto object-contain animate-pulse-slow rounded-lg"
+                  className="w-full h-full object-contain animate-pulse-slow"
                 />
               </div>
 
-              {/* Content - под картинкой на мобильных */}
-              <div className="w-full flex flex-col items-center justify-center text-center max-w-[343px] px-4">
+              {/* Content container - точная ширина и позиция из дизайна */}
+              <div className="w-[343px] mx-auto px-0">
                 
-                {/* Title */}
-                <h1 className="font-montserrat font-black uppercase leading-[0.9] relative mb-4 sm:mb-5
-                              text-[28px] sm:text-[32px] text-white">
-                  TRAFFIC MINDS
-                </h1>
+                {/* Content wrapper */}
+                <div className="flex flex-col items-center justify-center text-center gap-[20px] mb-[45px]">
+                  
+                  {/* Title - точные размеры из Figma */}
+                  <div className="w-full">
+                    <h1 className="font-montserrat font-black uppercase
+                                  text-[40px] leading-[76.8px] text-white text-center h-[33px] flex items-center justify-center">
+                      TRAFFIC MINDS
+                    </h1>
+                  </div>
 
-                {/* Description */}
-                <p className="font-ubuntu text-white leading-[1.3] w-full mb-6 sm:mb-7
-                             text-[14px] sm:text-[16px]">
-                  Мы генерируем половину идей, которые вы ищете в спай-сервисах и ПП - подключайся к источнику, а не к копиям!
-                </p>
+                  {/* Description - точные размеры из Figma */}
+                  <div className="w-full h-[78px] flex items-center justify-center">
+                    <p className="font-ubuntu text-white text-center
+                                 text-[16px] leading-[26px]">
+                      Мы генерируем половину идей, которые вы ищете в спай-сервисах и ПП - подключайся к источнику, а не к копиям!
+                    </p>
+                  </div>
+                </div>
 
-                {/* CTA Button */}
-                <button
-                  onClick={scrollToContactForm}
-                  className="bg-[#00cfff] hover:bg-[#00cfff]/90
-                             text-black font-montserrat font-bold uppercase 
-                             rounded-[18px] transition-all duration-300 
-                             transform hover:scale-[1.02] active:scale-[0.98]
-                             flex items-center justify-center w-full
-                             px-6 py-3 h-[48px] sm:h-[52px]
-                             text-[16px] sm:text-[18px] 
-                             leading-[1.5] shadow-lg shadow-[#00cfff]/20 hover:shadow-xl hover:shadow-[#00cfff]/30"
-                >
-                  ХОЧУ В КОМАНДУ
-                </button>
+                {/* CTA Button - точные размеры и позиция из Figma */}
+                <div className="w-full flex justify-center">
+                  <button
+                    onClick={scrollToContactForm}
+                    className="bg-[#00344d] hover:bg-[#00344d]/90
+                               text-white font-montserrat font-bold uppercase 
+                               rounded-[18px] transition-all duration-300 
+                               transform hover:scale-[1.02] active:scale-[0.98]
+                               flex items-center justify-center
+                               px-[30px] py-[14px]
+                               text-[20px] leading-[36px] whitespace-nowrap
+                               shadow-lg shadow-[#00344d]/20 hover:shadow-xl hover:shadow-[#00344d]/30"
+                  >
+                    ХОЧУ В КОМАНДУ
+                  </button>
+                </div>
               </div>
             </div>
 
-            {/* Desktop Layout - рядом друг с другом */}
-            <div className="hidden lg:contents">
+            {/* Desktop Layout - логотип слева, контент справа */}
+            <div className="hidden lg:flex lg:items-center lg:justify-center lg:gap-16 xl:gap-20 2xl:gap-24 w-full">
               
               {/* Left column - brain image */}
-              <div className="w-full lg:w-[45%] xl:w-[42%] 2xl:w-[40%] flex-shrink-0 order-1
-                              flex items-center justify-center lg:justify-end lg:pr-8">
-                
-                <div className="relative max-w-[540px] xl:max-w-[540px] w-full">
+              <div className="flex-shrink-0">
+                <div className="relative w-[540px] h-[540px]">
                   <img 
                     src={brainImg} 
                     alt="AI Brain Circuit" 
-                    className="w-full h-auto object-contain animate-pulse-slow rounded-lg"
+                    className="w-full h-full object-contain animate-pulse-slow"
                   />
                 </div>
               </div>
 
               {/* Right column - content */}
-              <div className="w-full lg:w-[50%] xl:w-[55%] 2xl:w-[57%] flex-shrink-0 order-2
-                              flex flex-col items-start justify-start lg:pr-8 xl:pr-[15%]">
+              <div className="flex-shrink-0 w-[550px]">
                 
                 {/* Title */}
-                <h1 className="font-montserrat font-black uppercase leading-[0.9] relative mb-6 xl:mb-8
-                              text-[42px] xl:text-[54px] 2xl:text-[64px]
-                              text-left text-white">
-                  TRAFFIC MINDS
-                </h1>
+                <div className="mb-5">
+                  <h1 className="font-montserrat font-black uppercase leading-[1.2] 
+                                text-[64px] text-white">
+                    TRAFFIC MINDS
+                  </h1>
+                </div>
 
                 {/* Description */}
-                <p className="font-ubuntu text-white leading-[1.3] w-full mb-8 xl:mb-10
-                             text-[20px] xl:text-[22px] 2xl:text-[25px]
-                             text-left max-w-[550px]">
-                  Мы генерируем половину идей, которые вы ищете в спай-сервисах и ПП - подключайся к источнику, а не к копиям!
-                </p>
+                <div className="mb-8">
+                  <p className="font-ubuntu text-white leading-[1.28] 
+                               text-[25px] w-[550px]">
+                    Мы генерируем половину идей, которые вы ищете в спай-сервисах и ПП - подключайся к источнику, а не к копиям!
+                  </p>
+                </div>
 
                 {/* CTA Button */}
                 <button
                   onClick={scrollToContactForm}
-                  className="bg-[#01415f] hover:bg-[#01415f]/90
+                  className="bg-[#00344d] hover:bg-[#00344d]/90
                              text-white font-montserrat font-bold uppercase 
                              rounded-[18px] transition-all duration-300 
                              transform hover:scale-[1.02] active:scale-[0.98]
                              flex items-center justify-center
-                             px-12 xl:px-14 2xl:px-[60px]
-                             py-4.5 xl:py-5 2xl:py-[21px]
-                             h-[64px] xl:h-[70px] 2xl:h-[78px]
-                             text-[20px] xl:text-[22px] 2xl:text-[24px] 
-                             leading-[1.5] whitespace-nowrap shadow-lg shadow-[#00cfff]/20 hover:shadow-xl hover:shadow-[#00cfff]/30"
+                             px-[60px] py-[21px]
+                             text-[24px] leading-[1.5] whitespace-nowrap 
+                             shadow-lg shadow-[#00344d]/20 hover:shadow-xl hover:shadow-[#00344d]/30"
                 >
                   ХОЧУ В КОМАНДУ
                 </button>
