@@ -10,16 +10,16 @@ const Desktop1: React.FC = () => {
       {/* Первый экран с Hero секцией */}
       <div className="max-w-[1920px] mx-auto relative h-screen flex flex-col">
         <Header />
-        <Hero />
+        <div className="flex-1 flex flex-col justify-center">
+          <Hero />
+        </div>
       </div>
 
-      {/* Форма контактов */}
-      <div className="max-w-[1920px] mx-auto">
-        <ContactForm />
-      </div>
-
-      {/* Футер */}
-      <div className="max-w-[1920px] mx-auto">
+      {/* Форма контактов и футер - вместе на одном экране */}
+      <div className="max-w-[1920px] mx-auto min-h-screen flex flex-col">
+        <div className="flex-1">
+          <ContactForm />
+        </div>
         <Footer />
       </div>
     </div>
