@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import logoImg from '../assets/logo.svg';
+import logoImg from '../assets/logoNew3.svg';
 
 const Header: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
