@@ -1,5 +1,5 @@
 import React from 'react';
-import brainImg from '../assets/brain.png';
+import brainImg from '../assets/heroImage.svg';
 
 const Hero: React.FC = () => {
   const scrollToContactForm = () => {
@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
             <div className="flex flex-col items-center justify-center gap-6 sm:gap-8 lg:hidden w-full">
               
               {/* Brain image - сверху на мобильных */}
-              <div className="relative max-w-[200px] sm:max-w-[230px] w-full">
+              <div className="relative max-w-[260px] sm:max-w-[260px] w-full">
                 <img 
                   src={brainImg} 
                   alt="AI Brain Circuit" 
@@ -66,7 +66,7 @@ const Hero: React.FC = () => {
               <div className="w-full lg:w-[45%] xl:w-[42%] 2xl:w-[40%] flex-shrink-0 order-1
                               flex items-center justify-center lg:justify-end lg:pr-8">
                 
-                <div className="relative max-w-[360px] xl:max-w-[391px] w-full">
+                <div className="relative max-w-[540px] xl:max-w-[540px] w-full">
                   <img 
                     src={brainImg} 
                     alt="AI Brain Circuit" 
