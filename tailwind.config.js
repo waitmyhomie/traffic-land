@@ -41,6 +41,9 @@ export default {
           'xl': '1280px',
           '2xl': '1536px',
           '3xl': '1920px',
+          // Добавляем медиа-запросы для высоты экрана
+          'short': { 'raw': '(max-height: 700px)' },
+          'tall': { 'raw': '(min-height: 800px)' },
         },
       },
     },
