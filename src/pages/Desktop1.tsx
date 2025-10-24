@@ -15,9 +15,9 @@ const Desktop1: React.FC = () => {
         </div>
       </div>
 
-      {/* Форма контактов и футер - вместе на одном экране */}
-      <div className="max-w-[1920px] mx-auto min-h-screen flex flex-col">
-        <div className="flex-1">
+      {/* Форма контактов и футер - ближе друг к другу */}
+      <div className="max-w-[1920px] mx-auto min-h-screen flex flex-col justify-center">
+        <div className="flex-1 flex flex-col justify-end pb-8">
           <ContactForm />
         </div>
         <Footer />

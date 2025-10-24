@@ -16,13 +16,13 @@ const Header: React.FC = () => {
           <div className="flex items-center justify-end lg:justify-start h-16 sm:h-18 md:h-20 lg:h-[124px]">
 
             {/* Логотип - скрыт на мобильных, показан слева на десктопе */}
-            <div className="hidden lg:flex items-center flex-shrink-0">
+            {/* <div className="hidden lg:flex items-center flex-shrink-0">
               <img 
                 src={logoImg} 
                 alt="Traffic Minds" 
                 className="h-[60px] lg:h-[80px] xl:h-[84px] w-auto object-contain"
               />
-            </div>
+            </div> */}
 
             {/* Навигация - на десктопе рядом с логотипом */}
             <div className="flex items-center lg:ml-8 xl:ml-[45px]">
